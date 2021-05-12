@@ -25,11 +25,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', userviews.register, name='register'),
     path('login/', authviwes.LoginView.as_view(template_name='users/login.html'), name='login'),
-    path('logout', authviwes.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    path('logout', authviwes.LogoutView.as_view(
+        template_name='app/home.html'), name='logout'),
     path('profile/', userviews.profile, name='profile'),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
